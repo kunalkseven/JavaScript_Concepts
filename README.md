@@ -1,6 +1,6 @@
-# Interview Questions
+# *Interview Questions*
 
-## React Js Interview Question
+## *React Js Interview Question*
 
 ## What is difference between virtual dom and shallow dom , dom in React js
 
@@ -166,7 +166,7 @@ Fiber is the new reconciliation engine in React 16. Its main goal is to enable i
 
 React Fiber divides the work into multiple units of work, which is fiber. It schedules the work in multiple frames and uses the deadline from the requestIdleCallback. Every update has its priority defined like animation, or user input has a higher priority than rendering the list of items from the fetched data.
 
-## HTML interview question
+# *HTML interview question*
 
 ## What is <!Doctype html> in Html5?
 
@@ -190,12 +190,15 @@ HTML5 is a new version of HTML with new functionalities with markup language wit
 The iframe in HTML stands for Inline Frame. An inline frame is used to embed another document within the current HTML document.
 What are the formatting tags in html?
 HTML Formatting basically refers to the enhancement of text in order to increase the visual appeal. Example:
-<b> - Bold text
-<strong> - Important text
-<i> - Italic text
-<em> - Emphasised text
-<mark> - Marked text
-<small> - Smaller text
+
+```
+  <b> - Bold text
+  <strong> - Important text
+  <i> - Italic text
+  <em> - Emphasised text
+  <mark> - Marked text
+  <small> - Smaller text
+```
 
 ## What is the difference between <b> and <Strong> in html?
 
@@ -214,8 +217,10 @@ All HTML elements can have attributes · Attributes provide additional informati
 
 A block-level element always starts on a new line and takes up the full width available. An inline element does not start on a new line and it only takes up as much width as necessary.
 
-Css Interview Question
-What are the selector in css?
+# *Css Interview Question*
+
+## What are the selector in css?
+
 CSS selectors are used to "find" (or select) the HTML elements you want to style.
 Simple selectors (select elements based on name, id, class)
 Combinator selectors (select elements based on a specific relationship between them)
@@ -233,7 +238,8 @@ The position property specifies the type of positioning method used for an eleme
 
 Static An element with position: static; is not positioned in any special way; it is always positioned according to the normal flow of the page:
 
-div.static {  
+```
+div.static {
  position: static;
 border: 3px solid #73AD21;
 }
@@ -276,6 +282,7 @@ top: 0;
 background-color: green;
 border: 2px solid #4CAF50;
 }
+```
 
 ## What is bom in css?
 
@@ -305,7 +312,7 @@ What are breakpoints for viewport responsive devices?
 Why do we use box-sizing in css?
 The box-sizing CSS property sets how the total width and height of an element is calculated. It allows us to include the padding and border in an element's total width and height.
 
-Javascript interview Question
+# *Javascript interview Question*
 
 ## What is Ecmascript in Javascript
 
@@ -415,7 +422,7 @@ currying is the technique of converting a function that takes multiple arguments
 
 ## What is memorization in javascript
 
-Javascript Input/Output interview Question
+# *Javascript Input/Output interview Question*
 
 ## Write a program to find 4th largest element occurence in array without using any Inbuilt methods.
 
@@ -425,6 +432,7 @@ console.log(count); // 👉 {1: 3, 2: 1, 3: 2}
 
 ## Write a program to remove duplicate item from array
 
+```
 const arr = [1, 2, 3, 4, 1, 2];
 const b = [];
 for (let i = 0; i < arr.length; i++) {
@@ -448,6 +456,7 @@ Const firstname = fun(); Let name = ‘vivek’ Function fun(){
 Return `my is ${name} malviya`
 }
 console.log(firstname);
+```
 
 ## Write a program for following output
 
@@ -457,6 +466,7 @@ console.log("output with normal function",mul(2)(4)(6))
 
 ## Write a program return resolve if value is less than 5 using Promise
 
+```
 function fun(a) {
 let myPromise = new Promise((myResolve, myReject) => {
 let x = 0;
@@ -473,6 +483,7 @@ console.log(result)
 })
 }
 fun(5);
+```
 
 What will be output for this program ?
 
@@ -480,8 +491,9 @@ And
 
 ## Write a program to multiply two number without using multiply Sign in Javascript
 
-    	## Write a program sorting in javascript?
+## Write a program sorting in javascript?
 
+```
 const arr = [3, 2, 5, 4, 1, 0]
 for (let i = 0; i < arr.length; i++) {
 for (let j = i + 1; j < arr.length; j++) {
@@ -496,15 +508,18 @@ console.log("Elements of array sorted in ascending order:");
 for (let i = 0; i < arr.length; i++) {
 console.log("Elements of array sorted in ascending order ", arr[i]);
 }
-What will be output ?
+```
+## What will be output ?
 
-What's the console output of?
+## What's the console output of?
+```
 const a = {};
 const b = { key: 'b' };
 const c = { key: 'c' };
 a[b] = 123;
 a[c] = 456;
 console.log(a[c]);
+```
 
 Answer : -
 Object keys are automatically converted into strings.
