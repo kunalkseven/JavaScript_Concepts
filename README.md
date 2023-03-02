@@ -217,6 +217,8 @@ All HTML elements can have attributes · Attributes provide additional informati
 
 A block-level element always starts on a new line and takes up the full width available. An inline element does not start on a new line and it only takes up as much width as necessary.
 
+
+
 # *Css Interview Question*
 
 ## What are the selector in css?
@@ -421,6 +423,15 @@ currying is the technique of converting a function that takes multiple arguments
 ## What is mutation observer in Javascript
 
 ## What is memorization in javascript
+
+
+# *Misslineous Interview Question*
+
+## How the HTML page parsed? The background process of loading a websites.
+
+## How the browser works?
+
+## How the improve the page performance?
 
 # *Javascript Input/Output interview Question*
 
