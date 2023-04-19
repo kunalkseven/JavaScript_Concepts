@@ -23,7 +23,32 @@ findElement([2, 4, 3, 9, 5])
 
 ```
 
-> ### 2. find the 2nd smallest and 4th largest element from unsorted array without unsing any inbuild methods.
+> ### 2. find the comman value in two objects.
+```
+const input1 = {a:12,b:10,d:10,r:23};
+const input2 = {d:10,b:1,a:12};
+// output >> {a:12,d:10}
+
+function findMatch(obj1,obj2){
+    const result = {}
+    for(ele in obj1){
+        if( obj1[ele] === obj2[ele]){
+            result[ele] = obj1[ele]
+        }
+    }
+    return result;
+}
+
+console.log(findMatch(input1,input2))
+
+```
+> ### 3. Solve input = [1,[2,[3,4,[12]]]] , output = [1,2,3,4,12] without using flat or inbuild methods
+```
+Solution:
+
+```
+
+> ### 3. find the 2nd smallest and 4th largest element from unsorted array without unsing any inbuild methods.
 ```
 Solution:
 
