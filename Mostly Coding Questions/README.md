@@ -48,8 +48,62 @@ Solution:
 
 ```
 
-> ### 3. find the 2nd smallest and 4th largest element from unsorted array without unsing any inbuild methods.
+> ### 4. Given a string, return the character that is most commonly used in the string.
+> ### --- Examples 
+> ### maxChar("abcccccccd") === "c"
+>### maxChar("apple 1231111") === "1"s.
+
 ```
 Solution:
 
+function maxChar(str) {
+    let hasMap = {};
+    let maxValue = 0;
+    let maxCharacter = '';
+
+    for(let char of str) {
+        hasMap[char] = hasMap[char] + 1 || 1
+    }
+
+    for(let char in hasMap){
+        if(hasMap[char] > maxValue){
+            maxValue = hasMap[char];
+            maxCharacter = char
+        }
+    }
+
+    return [maxCharacter,maxValue]
+}
+
+maxChar("abcccccccd")
+
+```
+
+> ### Given an array and chunk size, divide the array into many subarrays
+> ### where each subarray is of length size
+> ### --- Examples
+> ### chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
+> ### chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
+> ### chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
+
+```
+Solution:
+
+function chunk(arr, size) {
+    const result = [];
+
+    for(let ele of arr){
+        const last  = result[result.length - 1];
+
+        if(!last || last.length === size){
+            result.push([ele]);
+        }else{
+            last.push(ele)
+        }
+    }
+    return result
+
+}
+
+chunk([1, 2, 3, 4], 1)
 ```
