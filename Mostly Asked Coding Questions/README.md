@@ -1,6 +1,6 @@
 # List Mostly Coding Questions In Frontend Interview.
 
-> ### 1. find the 2nd smallest and 4th largest element from unsorted array without unsing any inbuild methods.
+> ### 1. Find the 2nd smallest and 4th largest element from unsorted array without unsing any inbuild methods.
 
 ```
 Solution:
@@ -24,7 +24,7 @@ findElement([2, 4, 3, 9, 5])
 
 ```
 
-> ### 2. find the comman value in two objects.
+> ### 2. Find the comman value in two objects.
 
 ```
 const input1 = {a:12,b:10,d:10,r:23};
@@ -86,16 +86,11 @@ maxChar("abcccccccd")
 
 ```
 
-> ### Given an array and chunk size, divide the array into many subarrays
->
+> ### 5. Given an array and chunk size, divide the array into many subarrays
 > ### where each subarray is of length size
->
 > ### --- Examples
->
 > ### chunk([1, 2, 3, 4], 2) --> [[1, 2], [3, 4]]
->
 > ### chunk([1, 2, 3, 4, 5], 2) --> [[1, 2], [3, 4], [5]]
->
 > ### chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[1, 2, 3], [4, 5, 6], [7, 8]]
 
 ```
@@ -133,20 +128,13 @@ function chunk(arr, size) {
 chunk([1, 2, 3, 4], 1)
 ```
 
-> ### --- Directions
->
-> ### Write a function that accepts a string. The function should
->
+
+> ### 6. Write a function that accepts a string. The function should
 > ### capitalize the first letter of each word in the string then
->
 > ### return the capitalized string.
->
 > ### --- Examples
->
 > ### capitalize('a short sentence') --> 'A Short Sentence'
->
 > ### capitalize('a lazy fox') --> 'A Lazy Fox'
->
 > ### capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 ```
@@ -180,5 +168,85 @@ function capitalize(str){
 }
 
 capitalize('a short sentence')
+
+```
+
+> ### 7. Write a program to remove  the first element of an array without using any inbuild method in JavaScript.
+
+```
+solution: 1
+
+function removeFirstElement(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  }
+  const firstElement = arr[0]; 
+  for (let i = 1; i < arr.length; i++) {
+    arr[i - 1] = arr[i]; 
+  }
+  arr.length = arr.length - 1;
+  return firstElement;
+}
+
+// example usage
+const myArray = [1, 2, 3, 4, 5];
+const removedElement = removeFirstElement(myArray);
+console.log(removedElement); // output: 1
+console.log(myArray); // output: [2, 3, 4, 5]
+
+```
+
+> ### 8. Write a program to pop the element of an array without using any inbuild method in javaScript.
+
+```
+Solution: 1
+
+function popFromArray(arr) {
+  if (arr.length === 0) {
+    return undefined;
+  }
+  const lastElement = arr[arr.length - 1];
+  arr.length = arr.length - 1;
+  return lastElement;
+}
+
+// example usage
+const myArray = [1, 2, 3, 4, 5];
+const poppedElement = popFromArray(myArray);
+console.log(poppedElement); // output: 5
+console.log(myArray); // output: [1, 2, 3, 4]
+
+```
+
+> ### 9. Write a function that returns the number of vowels
+> ### used in a string.  Vowels are the characters 'a', 'e'
+> ### 'i', 'o', and 'u'.
+> ### --- Examples
+> ###   vowels('Hi There!') --> 3
+> ###   vowels('Why do you ask?') --> 4
+> ###   vowels('Why?') --> 0
+
+
+```
+Solution: 1
+
+function vowels(str){
+  const matches = str.match(/[aeiou]/gi);
+  return matches ? matches.length : 0
+}
+
+Solution: 2
+
+function vowels(str){
+  const vowelsList = ['a','e','i','o','u'];
+  let count = 0;
+
+  for(let char of str.toLowerCase()){
+    if(vowelsList.includes(char)){
+      count++; 
+    }
+  }
+  return count;
+}
 
 ```
