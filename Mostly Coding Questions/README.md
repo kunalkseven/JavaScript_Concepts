@@ -1,6 +1,7 @@
 # List Mostly Coding Questions In Frontend Interview.
 
 > ### 1. find the 2nd smallest and 4th largest element from unsorted array without unsing any inbuild methods.
+
 ```
 Solution:
 function findElement(arr) {
@@ -24,6 +25,7 @@ findElement([2, 4, 3, 9, 5])
 ```
 
 > ### 2. find the comman value in two objects.
+
 ```
 const input1 = {a:12,b:10,d:10,r:23};
 const input2 = {d:10,b:1,a:12};
@@ -42,16 +44,21 @@ function findMatch(obj1,obj2){
 console.log(findMatch(input1,input2))
 
 ```
+
 > ### 3. Solve input = [1,[2,[3,4,[12]]]] , output = [1,2,3,4,12] without using flat or inbuild methods
+
 ```
 Solution:
 
 ```
 
 > ### 4. Given a string, return the character that is most commonly used in the string.
-> ### --- Examples 
+>
+> ### --- Examples
+>
 > ### maxChar("abcccccccd") === "c"
->### maxChar("apple 1231111") === "1"s.
+>
+> ### maxChar("apple 1231111") === "1"s.
 
 ```
 Solution:
@@ -80,14 +87,19 @@ maxChar("abcccccccd")
 ```
 
 > ### Given an array and chunk size, divide the array into many subarrays
+>
 > ### where each subarray is of length size
+>
 > ### --- Examples
-> ### chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
-> ### chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
-> ### chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
+>
+> ### chunk([1, 2, 3, 4], 2) --> [[1, 2], [3, 4]]
+>
+> ### chunk([1, 2, 3, 4, 5], 2) --> [[1, 2], [3, 4], [5]]
+>
+> ### chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[1, 2, 3], [4, 5, 6], [7, 8]]
 
 ```
-Solution:
+Solution: 1
 
 function chunk(arr, size) {
     const result = [];
@@ -105,5 +117,68 @@ function chunk(arr, size) {
 
 }
 
+solution: 2
+
+function chunk(arr, size) {
+    const result  = [];
+    let index  = 0;
+
+    while(index < arr.length){
+        result.push(arr.slice(index,index+size));
+        index += size;
+    }
+    return result
+}
+
 chunk([1, 2, 3, 4], 1)
+```
+
+> ### --- Directions
+>
+> ### Write a function that accepts a string. The function should
+>
+> ### capitalize the first letter of each word in the string then
+>
+> ### return the capitalized string.
+>
+> ### --- Examples
+>
+> ### capitalize('a short sentence') --> 'A Short Sentence'
+>
+> ### capitalize('a lazy fox') --> 'A Lazy Fox'
+>
+> ### capitalize('look, it is working!') --> 'Look, It Is Working!'
+
+```
+Solution: 1
+
+function capitalize(str){
+  const strArr = str.split(' ');
+  let result = '';
+  for(let char of strArr){
+    let newChar = char[0].toUpperCase() + char.slice(1)
+    result = result + " " + newChar;
+  }
+  return result;
+}
+capitalize('a short sentence')
+
+Solution: 2
+
+function capitalize(str){
+  let strArr = str.split('');
+  let result = strArr[0].toUpperCase();
+
+  for(let i=1;i<strArr.length;i++){
+    if(strArr[i-1]=== " "){
+      result = result + strArr[i].toUpperCase();
+    }else{
+      result = result + strArr[i]
+    }
+  }
+  return result;
+}
+
+capitalize('a short sentence')
+
 ```
