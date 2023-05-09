@@ -4,6 +4,43 @@ This document contains a list of built-in methods available in JavaScript for ar
 
 > # JavaScript Built-in Array Methods
 
+
+Here are all the built-in methods of the Array object in JavaScript:
+
+1. `from()`: creates a new array from an array-like or iterable object.
+2. `isArray()`: checks whether a given value is an 
+3. `of()`: creates a new array with a variable number of arguments.
+4. `concat()`: creates a new array that includes the elements of the original array and additional elements.
+5. `copyWithin()`: copies a sequence of elements within the array to the position starting at the target index.
+6. `entries()`: returns a new iterator object that contains the key/value pairs for each index in the 
+7. `every()`: checks whether all elements in the array pass a given test.
+8. `fill()`: fills all elements in the array with a static value.
+9. `filter()`: creates a new array with all elements that pass a given test.
+10. `find()`: returns the value of the first element in the array that satisfies a given test function.
+11. `findIndex()`: returns the index of the first element in the array that satisfies a given test function.
+12. `flat()`: creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+13. `flatMap()`: creates a new array by applying a function to each element of the array, and then flattening the result by one level.
+14. `forEach()`: calls a function for each element in the 
+15. `includes()`: checks whether an array contains a specific element.
+16. `indexOf()`: returns the first index at which a given element can be found in the array, or -1 if it is not present.
+17. `join()`: joins all elements of an array into a string.
+18. `keys()`: returns a new iterator object that contains the keys for each index in the 
+19. `lastIndexOf()`: returns the last index at which a given element can be found in the array, or -1 if it is not present.
+20. `map()`: creates a new array by applying a function to each element of the original 
+21. `pop()`: removes the last element from the array and returns it.
+22. `push()`: adds one or more elements to the end of the array and returns the new length.
+23. `reduce()`: applies a function to each element of the array, resulting in a single output value.
+24. `reduceRight()`: applies a function to each element of the array, starting from the end, resulting in a single output value.
+25. `reverse()`: reverses the order of the elements in the 
+26. `shift()`: removes the first element from the array and returns it.
+27. `slice()`: returns a shallow copy of a portion of an array into a new array object.
+28. `some()`: checks whether at least one element in the array passes a given test.
+29. `sort()`: sorts the elements of an array in place and returns the sorted 
+30. `splice()`: changes the content of an array by removing or replacing existing elements and/or adding new elements.
+31. `toLocaleString()`: returns a string representing the elements of the array, formatted according to the specified locale.
+32. `toSource()`: returns a string representing the source code of the 
+
+
 ### `Array.from()`
 
 This method creates a new, shallow-copied Array instance from an array-like or iterable object.
