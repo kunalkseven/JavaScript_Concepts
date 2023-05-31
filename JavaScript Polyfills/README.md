@@ -8,7 +8,7 @@ Syntex =>> array.map(function(currentValue, index, arr), thisValue)
   Array.prototype.myMap = function(callback) {
     var newArray = [];
     for (var i = 0; i < this.length; i++) {
-      newArray.push(callback.call(this[i], i, this));
+      newArray.push(callback(this[i], i, this));
     }
     return newArray;
   };
