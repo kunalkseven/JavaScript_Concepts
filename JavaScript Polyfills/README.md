@@ -1,6 +1,6 @@
 # Importent Polyfill asked in Interviews.
 
-> ### .1 Polyfill for Array.prototype.map()
+> ### 1. Polyfill for Array.prototype.map()
 
 Syntex =>> array.map(function(currentValue, index, arr), thisValue)
 ```
@@ -15,7 +15,7 @@ Syntex =>> array.map(function(currentValue, index, arr), thisValue)
   
 ```
 
-> ### .2 Polyfill for Array.prototype.filter()
+> ### 2. Polyfill for Array.prototype.filter()
 
 Syntex =>> array.filter(function(currentValue, index, arr), thisValue)
 
@@ -33,7 +33,7 @@ Syntex =>> array.filter(function(currentValue, index, arr), thisValue)
 
 ```
 
-> ### .3 Polyfill for Array.prototype.reduce()
+> ### 3. Polyfill for Array.prototype.reduce()
 
 Syntex =>> arr.reduce((acc,currentValue,i,arr),initialValue)
 
@@ -50,5 +50,86 @@ Syntex =>> arr.reduce((acc,currentValue,i,arr),initialValue)
     }
     return accumulator;
   };
+
+```
+
+> ### 4. Write a Polyfill function which run's only once.
+
+```
+function once(func,context){
+    let run;
+    
+    return function (){
+        if(func){
+            run = func.apply(context || this, arguments);
+            func = null
+        }
+        
+        return run;
+    }
+}
+
+const hello = once((name)=>console.log('Hello','Kunal'));
+
+hello()
+hello()
+hello()
+hello() 
+
+```
+
+> ### 4. Write a Polyfill function which run's only once.
+
+```
+function once(func,context){
+    let run;
+    
+    return function (){
+        if(func){
+            run = func.apply(context || this, arguments);
+            func = null
+        }
+        
+        return run;
+    }
+}
+
+const hello = once((name)=>console.log('Hello',name));
+
+hello("Kunal")
+hello("Kunal")
+hello("Kunal")
+hello("Kunal")
+
+```
+> ### 4. Write a Polyfill memoize/caching function.
+
+```
+function memoize(func, context){
+    const res = {};
+    return function(...args){
+        var argsCache = JSON.stringify(args);
+        if(!res[argsCache]){
+            res[argsCache] = func.call(context || this, ...args)
+        }
+        return res[argsCache]
+    }
+}
+
+const clumsyCode = (num1,num2)=>{
+    for(let i=0;i< 1000000;i++){}
+    return num1 + num2
+};
+
+const memoizeClumsyCode = memoize(clumsyCode);
+
+
+console.time('First call')
+console.log(memoizeClumsyCode(123,987))
+console.timeEnd('First call')
+
+console.time('Second call')
+console.log(memoizeClumsyCode(123,987))
+console.timeEnd('Second call') 
 
 ```
