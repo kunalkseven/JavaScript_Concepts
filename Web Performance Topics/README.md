@@ -35,11 +35,33 @@ Certainly, I'll provide a detailed explanation with examples for each of the web
 
 **Example:** Suppose you have a web page with a large, unoptimized image at the top. The browser will first load and render this image, causing the rest of the page's content to be delayed. To optimize CRP, you can use lazy loading for the image, ensuring that other page elements load before the image.
 
+```jsx
+// Lazy load images to improve CRP
+const lazyImage = new Image();
+lazyImage.src = 'image.jpg';
+document.querySelector('.image-container').appendChild(lazyImage);
+```
+
 ## 2. Debouncing / Throttling
 
 **Explanation:** Debouncing and throttling are techniques to control the execution rate of certain functions or actions, especially event handlers, to improve performance and reduce the frequency of function calls.
 
 **Example:** When implementing a search input with real-time suggestions, debouncing can be used to delay the execution of the search function until the user stops typing for a brief moment, reducing the number of unnecessary API requests.
+
+```javascript
+// Debounce function to delay API requests
+function debounce(func, delay) {
+  let timer;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(context, args);
+    }, delay);
+  };
+}
+```
 
 ## 3. Bundle Splitting
 
@@ -47,13 +69,28 @@ Certainly, I'll provide a detailed explanation with examples for each of the web
 
 **Example:** Instead of bundling the entire application into one massive JavaScript file, you can split it into separate files for different parts of your app. For instance, separate bundles for the homepage and user dashboard. This allows the browser to load only the necessary code for a particular page.
 
+```javascript
+// Webpack configuration for bundle splitting
+module.exports = {
+  // ...
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+};
+```
+
 ## 4. Preload, Preconnect, Prefetch, Prerender
 
 **Explanation:** These are resource hinting techniques used to instruct the browser to preload, preconnect, prefetch, or prerender resources to improve page load times.
 
 **Example:** You can use the `rel` attribute in the `<link>` tag to preload critical resources such as fonts or stylesheets. For example:
 
+Example (preloading a font):
+
 ```html
+<!-- Preload a font -->
 <link rel="preload" href="font.woff2" as="font" type="font/woff2">
 ```
 
@@ -85,6 +122,7 @@ onmessage = function (e) {
 document.querySelector('ul').addEventListener('click', function (e) {
   if (e.target && e.target.tagName === 'LI') {
     // Handle the click on the list item
+    e.target.classList.toggle('selected');
   }
 });
 ```
@@ -123,6 +161,16 @@ element.appendChild(fragment); // Minimizes reflows
 
 **Example:** When making multiple style changes to an element, it's more efficient to apply those changes in a batch using CSS classes rather than changing styles individually, which can trigger multiple reflows.
 
+```javascript
+// Bad practice triggering multiple reflows
+element.style.width = '100px';
+element.style.height = '100px';
+element.style.backgroundColor = 'blue';
+
+// Better practice, batching style changes
+element.classList.add('custom-style'); // CSS class defines the styles
+```
+
 ## 11. Image Compression
 
 **Explanation:** Image compression techniques reduce the file size of images while preserving quality, resulting in faster loading times for web pages.
@@ -134,6 +182,14 @@ element.appendChild(fragment); // Minimizes reflows
 **Explanation:** Memory leaks occur when an application fails to release memory that is no longer in use. Detecting and preventing memory leaks is crucial for maintaining optimal performance.
 
 **Example:** Use browser developer tools, such as the Memory and Performance tabs, to profile your application's memory usage and identify memory leaks. Ensure that event listeners and references to objects are properly removed when they are no longer needed.
+
+```javascript
+// Adding an event listener
+element.addEventListener('click', handleClick);
+
+// Removing the event listener when no longer needed
+element.removeEventListener('click', handleClick);
+```
 
 These web performance topics cover various aspects of optimizing web applications for speed and efficiency, ultimately providing a better user experience.
 
