@@ -68,8 +68,11 @@ function flaten(array){
 ```
 
 > ### 4. Given a string, return the character that is most commonly used in the string.
+>
 > ### --- Examples
+>
 > ### maxChar("abcccccccd") === "c"
+>
 > ### maxChar("apple 1231111") === "1"s.
 
 ```
@@ -99,10 +102,15 @@ maxChar("abcccccccd")
 ```
 
 > ### 5. Given an array and chunk size, divide the array into many subarrays
+>
 > ### where each subarray is of length size
+>
 > ### --- Examples
+>
 > ### chunk([1, 2, 3, 4], 2) --> [[1, 2], [3, 4]]
+>
 > ### chunk([1, 2, 3, 4, 5], 2) --> [[1, 2], [3, 4], [5]]
+>
 > ### chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[1, 2, 3], [4, 5, 6], [7, 8]]
 
 ```
@@ -140,13 +148,18 @@ function chunk(arr, size) {
 chunk([1, 2, 3, 4], 1)
 ```
 
-
 > ### 6. Write a function that accepts a string. The function should
+>
 > ### capitalize the first letter of each word in the string then
+>
 > ### return the capitalized string.
+>
 > ### --- Examples
+>
 > ### capitalize('a short sentence') --> 'A Short Sentence'
+>
 > ### capitalize('a lazy fox') --> 'A Lazy Fox'
+>
 > ### capitalize('look, it is working!') --> 'Look, It Is Working!'
 
 ```
@@ -183,7 +196,7 @@ capitalize('a short sentence')
 
 ```
 
-> ### 7. Write a program to remove  the first element of an array without using any inbuild method in JavaScript.
+> ### 7. Write a program to remove the first element of an array without using any inbuild method in JavaScript.
 
 ```
 solution: 1
@@ -192,9 +205,9 @@ function removeFirstElement(arr) {
   if (arr.length === 0) {
     return undefined;
   }
-  const firstElement = arr[0]; 
+  const firstElement = arr[0];
   for (let i = 1; i < arr.length; i++) {
-    arr[i - 1] = arr[i]; 
+    arr[i - 1] = arr[i];
   }
   arr.length = arr.length - 1;
   return firstElement;
@@ -231,13 +244,18 @@ console.log(myArray); // output: [1, 2, 3, 4]
 ```
 
 > ### 9. Write a function that returns the number of vowels
-> ### used in a string.  Vowels are the characters 'a', 'e'
+>
+> ### used in a string. Vowels are the characters 'a', 'e'
+>
 > ### 'i', 'o', and 'u'.
+>
 > ### --- Examples
-> ###   vowels('Hi There!') --> 3
-> ###   vowels('Why do you ask?') --> 4
-> ###   vowels('Why?') --> 0
-
+>
+> ### vowels('Hi There!') --> 3
+>
+> ### vowels('Why do you ask?') --> 4
+>
+> ### vowels('Why?') --> 0
 
 ```
 Solution: 1
@@ -255,10 +273,87 @@ function vowels(str){
 
   for(let char of str.toLowerCase()){
     if(vowelsList.includes(char)){
-      count++; 
+      count++;
     }
   }
   return count;
 }
+
+```
+
+> ### 10. Write a cashing/memoize function
+
+```
+Solution: 1
+
+function myMomoize(fn,context){
+  const res = {};
+  return function(...args){
+    var argsCache = JSON.stringify(args);
+    if(!res[argsCache]){
+      res[argsCache] = fn.call(context ||this, ...args)
+    }
+    return res[argsCache];
+  }
+}
+
+const longFunction = (num1,num2)=>{
+  for(let i=0;i<=100000000;i++){};
+  return num1 * num2;
+}
+
+const memoizedResult = myMomoize(longFunction)
+
+console.time('first call');
+console.log(memoizedResult(3,4));
+console.timeEnd('first call');
+
+console.time('Second call');
+console.log(memoizedResult(3,4));
+console.timeEnd('Second call');
+
+```
+
+> ### 11. Write a infinite currying function
+
+```
+Solution: 1
+
+function add(a) {
+  return function (b){
+    if(b) return add(a+b);
+    return a;
+  }
+}
+
+console.log(add(1)(2)(3)(4)())
+
+```
+
+> ### 12. Implement this code
+> const result = calc.add(10).multiply(5).substract(30).add(10);
+> console.log(result.total)
+
+```
+Solution: 1
+
+const calc = {
+  total : 0,
+  add : function(num){
+    this.total += num;
+    return this
+  },
+  substract : function(num){
+    this.total -= num;
+    return this
+  },
+  multiply: function(num){
+    this.total *= num;
+    return this
+  },
+}
+
+const result = calc.add(10).multiply(5).substract(30).add(10);
+console.log(result.total)
 
 ```
