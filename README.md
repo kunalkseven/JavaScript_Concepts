@@ -383,6 +383,8 @@ The event loop concept is very simple. There’s an endless loop, where the Java
 
 ## What is object.seal and object.freeze in Javascript?
 
+Object.seal() allows changes to the existing properties of an object. It prevents from deletion of existing properties but cannot prevent them from external changes. Object.freeze() does not allow so. It makes an object immune to everything even little changes cannot be made.
+
 ## What is the difference between map and set in Javascript?
 
 ## What is Weakmap and Weakset in Javascript
