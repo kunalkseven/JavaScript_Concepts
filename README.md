@@ -370,10 +370,13 @@ Bind returns a new function, allowing you to pass in this array and any number o
 
 ## What is prototype inheritance in Javascript?
 
-## What is throttling and debouncing in js?
+Prototype inheritance in javascript is the linking of prototypes of a parent object to a child object to share and utilize the properties of a parent class using a child class. Prototypes are hidden objects that are used to share the properties and methods of a parent class to child classes.
 
-Throttling is used to call a function after every millisecond or a particular interval of time; only the first click is executed immediately.
-Debouncing is a programming pattern or a technique to restrict the calling of a time-consuming function frequently, by delaying the execution of the function until a specified time to avoid unnecessary CPU cycles, and API calls and improve performance
+## What is debouncing and throttling in js?
+
+Debouncing is a technique where we can monitor the time delay of user action and once that delay reaches our predetermined threshold we can can make the function call.
+
+Throttling is a technique where we make the function call in a predetermined time interval irrespective of continuous user actions.
 
 ## What is the execution context, event loop ,stack, call queue and microtask queue in Javascript?
 
@@ -390,6 +393,78 @@ Object.seal() allows changes to the existing properties of an object. It prevent
 ## What is Weakmap and Weakset in Javascript
 
 ## What is sessionStorage, localStorage and cookie?
+
+`sessionStorage`, `localStorage`, and cookies are all storage mechanisms in web development, but they have different purposes and characteristics:
+
+1. **Session Storage (`sessionStorage`)**:
+
+   - **Scope**: Data stored in `sessionStorage` is accessible only for the duration of the page session. It is available as long as the browser tab or window is open and is cleared when the tab or window is closed.
+
+   - **Storage Limit**: It has a larger storage limit compared to cookies but is still limited (usually around 5-10 MB).
+
+   - **Use Cases**: It is often used to store temporary or session-specific data that should be available only during a single user session, such as data needed for the current page's functionality.
+
+   - **Security**: Data is generally considered more secure than cookies because it is not sent to the server with every HTTP request.
+
+   - **API**: You can interact with `sessionStorage` using JavaScript's `sessionStorage` object.
+
+   ```javascript
+   // Storing data in sessionStorage
+   sessionStorage.setItem('key', 'value');
+
+   // Retrieving data from sessionStorage
+   const value = sessionStorage.getItem('key');
+   ```
+
+2. **Local Storage (`localStorage`)**:
+
+   - **Scope**: Data stored in `localStorage` persists beyond the current session and remains available even after the browser is closed and reopened. It is stored indefinitely until explicitly removed.
+
+   - **Storage Limit**: It has a larger storage limit than both `sessionStorage` and cookies (usually around 5-10 MB or more, depending on the browser).
+
+   - **Use Cases**: It is used for storing data that should persist across sessions, such as user preferences, settings, or cached data.
+
+   - **Security**: Data stored in `localStorage` is accessible to JavaScript on the same domain, which means it can be vulnerable to certain attacks like cross-site scripting (XSS).
+
+   - **API**: You can interact with `localStorage` using JavaScript's `localStorage` object.
+
+   ```javascript
+   // Storing data in localStorage
+   localStorage.setItem('key', 'value');
+
+   // Retrieving data from localStorage
+   const value = localStorage.getItem('key');
+   ```
+
+3. **Cookies**:
+
+   - **Scope**: Cookies are small pieces of data sent by the server and stored on the client's device. They have an expiration date and can persist across sessions.
+
+   - **Storage Limit**: Cookies have a smaller storage limit (usually around 4KB per cookie) compared to `sessionStorage` and `localStorage`.
+
+   - **Use Cases**: Cookies are commonly used for maintaining user sessions (session cookies), tracking user behavior, and storing small amounts of data needed by the server or client.
+
+   - **Security**: Cookies can be subject to security vulnerabilities like cross-site request forgery (CSRF) and need careful management.
+
+   - **API**: You can interact with cookies using JavaScript's `document.cookie` property.
+
+   ```javascript
+   // Setting a cookie
+   document.cookie = 'key=value; expires=Wed, 30 Sep 2023 12:00:00 UTC; path=/';
+
+   // Retrieving a cookie
+   const cookies = document.cookie.split(';');
+   ```
+
+**Key Differences**:
+
+- **Scope**: `sessionStorage` is limited to the current session, `localStorage` persists across sessions, and cookies can have various expiration times.
+- **Storage Limit**: `localStorage` generally has a larger storage limit compared to `sessionStorage` and cookies.
+- **Security**: Cookies can be vulnerable to certain attacks, while `localStorage` and `sessionStorage` are considered more secure.
+- **API**: Each has its own API for interaction in JavaScript.
+- **Use Cases**: Choose the storage mechanism based on your specific use case. Use `sessionStorage` for temporary session data, `localStorage` for persistent client-side data, and cookies for data that needs to be sent with HTTP requests to the server.
+
+Consider the characteristics and requirements of your application when choosing between `sessionStorage`, `localStorage`, or cookies for storing data.
 
 ## Write a program to sort an array
 
