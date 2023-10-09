@@ -101,3 +101,87 @@ npm start
 2. Set up monitoring and logging to keep an eye on server performance.
 
 That's it! Your React app should now be deployed on your AWS EC2 instance. Users can access it via the public IP address or custom domain if configured. Remember to secure your server, set up backups, and follow best practices for AWS and web application deployment to ensure stability and security.
+
+
+
+# Write a step to step prosses of react project CI/CD in aws server? 
+
+Setting up a CI/CD (Continuous Integration/Continuous Deployment) pipeline for deploying a React project to an AWS server involves several steps. Below is a step-by-step process to set up CI/CD for a React app using AWS CodePipeline and AWS Elastic Beanstalk. This assumes you already have a React project hosted on a version control system like GitHub or AWS CodeCommit.
+
+**Step 1: Create an AWS Elastic Beanstalk Environment**
+
+1. Log in to the AWS Management Console.
+
+2. Navigate to AWS Elastic Beanstalk.
+
+3. Create a new Elastic Beanstalk application and environment. Choose a suitable environment type, like Node.js, and configure your environment.
+
+**Step 2: Set Up an AWS CodePipeline**
+
+1. Navigate to AWS CodePipeline in the AWS Management Console.
+
+2. Click on "Create pipeline."
+
+3. Give your pipeline a name and select the source provider (e.g., GitHub, AWS CodeCommit).
+
+4. Configure your source settings to connect to your repository.
+
+5. Choose a build provider (e.g., AWS CodeBuild) to build your React app.
+
+6. Configure your build settings, specifying the build environment and build specifications (e.g., `buildspec.yml`).
+
+**Step 3: Configure Deployment**
+
+1. In your AWS CodePipeline, add a deployment stage.
+
+2. Choose AWS Elastic Beanstalk as the deployment provider.
+
+3. Select the Elastic Beanstalk application and environment you created earlier.
+
+4. Configure any additional settings for deployment, such as application version naming.
+
+**Step 4: Create a Build Specification File (buildspec.yml)**
+
+1. In your React project root directory, create a `buildspec.yml` file to define the build and deployment steps. Here's an example:
+
+```yaml
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - npm install
+      - npm run build
+
+artifacts:
+  files: '**/*'
+  base-directory: build
+```
+
+**Step 5: Configure AWS CodeBuild**
+
+1. In your AWS CodePipeline, you specified AWS CodeBuild as your build provider. Configure your AWS CodeBuild project with the appropriate build environment (Node.js) and build specification file (`buildspec.yml`).
+
+2. Ensure that your AWS CodeBuild role has the necessary permissions to access your React project's source code and deploy to Elastic Beanstalk.
+
+**Step 6: Set Up Webhooks (Optional)**
+
+1. To enable automatic triggering of your CI/CD pipeline whenever changes are pushed to your repository, set up webhooks in your source code repository service (e.g., GitHub).
+
+**Step 7: Commit and Push Changes**
+
+1. Make changes to your React app code.
+
+2. Commit and push your changes to the repository.
+
+**Step 8: Monitor the CI/CD Pipeline**
+
+1. Monitor the progress of your CI/CD pipeline in the AWS CodePipeline dashboard.
+
+2. AWS CodePipeline will automatically build and deploy your React app whenever changes are detected in your repository.
+
+**Step 9: Access Your Deployed React App**
+
+1. Once the CI/CD pipeline successfully deploys your app, you can access it via the AWS Elastic Beanstalk environment URL.
+
+That's it! You've set up a CI/CD pipeline for your React project on AWS, allowing you to automate the deployment process and ensure a continuous and streamlined development workflow.
